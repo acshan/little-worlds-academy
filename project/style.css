@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #17382f;
+  color: #f8f3df;
+  font:
+    14px/1.7 -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    sans-serif;
+}
+button,
+a,
+input {
+  touch-action: manipulation;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible,
+canvas:focus-visible {
+  outline: 3px solid #e3be78;
+  outline-offset: 4px;
+}
+.game-shell {
+  height: 100dvh;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline-offset: -5px;
+}
+header {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+header a {
+  color: #e4f0df;
+  text-decoration: none;
+  font-size: 12px;
+}
+header > span {
+  text-shadow: 0 2px 8px #153729;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+}
+header small {
+  font-size: 9px;
+  opacity: 0.75;
+  margin-left: 8px;
+}
+button {
+  border: 1px solid #b2c8a9;
+  background: #f4f1dfec;
+  border-radius: 7px;
+  color: #244b38;
+  padding: 9px 15px;
+  font-size: 12px;
+}
+.hud {
+  position: absolute;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+  white-space: nowrap;
+  background: #193d33dc;
+  border: 1px solid #cde3c339;
+  padding: 9px 20px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+.goal {
+  position: absolute;
+  top: 132px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 11px;
+  text-shadow: 0 1px 5px #193d33;
+}
+footer {
+  position: absolute;
+  bottom: 19px;
+  left: 26px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 10px;
+  text-shadow: 0 1px 6px #163b2a;
+}
+footer label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+input {
+  accent-color: #548162;
+}
+.game-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(440px, 88%);
+  background: #f5f1e3f5;
+  border: 1px solid #d9dfcb;
+  color: #294b37;
+  border-radius: 18px;
+  padding: 33px;
+  box-shadow: 0 20px 90px #12372750;
+  text-align: center;
+}
+.game-overlay:empty {
+  display: none;
+}
+.game-overlay h1 {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 7px 0 12px;
+}
+.game-overlay p {
+  font-size: 12px;
+  color: #71816b;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.game-overlay .kicker {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #8d9e7f;
+}
+.game-overlay .big {
+  background: #32684a;
+  color: #fff;
+  border: 0;
+  padding: 12px 30px;
+}
+.game-overlay .choices {
+  display: grid;
+  gap: 9px;
+}
+.game-overlay .choices button {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+.game-overlay .choices small {
+  font-size: 10px;
+  color: #6b8061;
+}
+.error {
+  position: absolute;
+  inset: 80px 20px 40px;
+  background: #f5f1e3;
+  padding: 25px;
+  color: #943e30;
+  border-radius: 12px;
+}
+.directions {
+  display: none;
+  position: absolute;
+  bottom: 65px;
+  left: 20px;
+  text-align: center;
+}
+.directions button {
+  width: 43px;
+  height: 38px;
+  margin: 3px;
+  padding: 4px;
+  touch-action: none;
+  background: #f4f1dfd9;
+}
+@media (pointer: coarse) {
+  .directions {
+    display: block;
+  }
+}
+@media (max-width: 640px) {
+  header {
+    left: 16px;
+    right: 16px;
+    top: 17px;
+  }
+  header > span {
+    font-size: 13px;
+  }
+  header small {
+    display: none;
+  }
+  header a {
+    font-size: 10px;
+  }
+  header button {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+  .hud {
+    gap: 13px;
+    top: 68px;
+    padding: 8px 13px;
+    font-size: 10px;
+  }
+  .goal {
+    top: 115px;
+    font-size: 10px;
+  }
+  footer {
+    left: 16px;
+    right: 16px;
+    bottom: 13px;
+    flex-wrap: wrap;
+    font-size: 9px;
+    gap: 8px;
+  }
+  footer > span {
+    width: 100%;
+  }
+  .game-overlay {
+    padding: 23px;
+  }
+  .game-overlay h1 {
+    font-size: 27px;
+  }
+  .directions {
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+}

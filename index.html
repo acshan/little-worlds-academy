@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f4f2e9" />
+    <title>微光游戏工坊 · 从零种出你的 3D 游戏</title>
+    <meta
+      name="description"
+      content="给游戏开发新手的互动课程：JavaScript、Three.js、自动攻击、升级构筑，一步步完成原创浏览器幸存者游戏。"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#welcome"
+        ><span class="brand-mark" aria-hidden="true">✳</span
+        ><span
+          >微光游戏工坊<small>LITTLE WORLDS / A PLAYABLE COURSE</small></span
+        ></a
+      >
+      <nav aria-label="主要导航">
+        <button id="outline-toggle" class="text-btn">课程地图</button
+        ><a href="./project/" target="_blank" rel="noopener" class="text-btn"
+          >试玩结业项目 ↗</a
+        ><a class="download" href="./downloads/forest-survivor.zip" download
+          >↓ 下载完整项目</a
+        >
+      </nav>
+    </header>
+    <div class="intro">
+      <div>
+        <p class="eyebrow">从玩家，到创造者 · BEGINNER FRIENDLY</p>
+        <h1>把一颗像素，<em>种成一个世界。</em></h1>
+        <p>
+          一边玩，一边写。用 JavaScript 与 Three.js，完成你的第一款 3D
+          幸存者小游戏。
+        </p>
+      </div>
+      <div class="journey-summary">
+        <strong id="progress-count">00 / 18</strong
+        ><span>枚知识种子已点亮</span>
+        <div class="progress-track"><i id="progress-bar"></i></div>
+        <small>不赶进度，每次让世界多一点变化。</small>
+      </div>
+    </div>
+    <div class="workspace">
+      <aside class="syllabus" id="syllabus">
+        <div class="syllabus-heading">
+          <span>你的探索地图</span><span class="tiny-tag">5 个阶段</span>
+        </div>
+        <div id="lesson-list"></div>
+        <div class="sidebar-bottom">
+          <p>不必先会建模。<br />从一个能动的小方块开始。</p>
+          <a href="./downloads/forest-starter.zip" download class="text-btn"
+            >↓ 从零起步模板</a
+          ><a
+            href="./BUILD-YOUR-OWN.md"
+            target="_blank"
+            rel="noopener"
+            class="text-btn"
+            >独立开发手册 ↗</a
+          ><button id="export-progress" class="text-btn">
+            导出学习记录 ↗
+          </button>
+        </div>
+      </aside>
+      <main id="lesson" tabindex="-1">
+        <div class="lesson-top">
+          <span id="act-label" class="eyebrow"></span
+          ><span id="lesson-number"></span>
+        </div>
+        <h2 id="lesson-title"></h2>
+        <p id="lesson-subtitle" class="lesson-subtitle"></p>
+        <div class="goal">
+          <span>这一课，你会</span>
+          <p id="lesson-goal"></p>
+        </div>
+        <div class="lesson-tabs" role="tablist" aria-label="学习内容">
+          <button
+            role="tab"
+            id="tab-read"
+            aria-controls="panel-read"
+            aria-selected="true"
+            data-tab="read"
+          >
+            01 理解</button
+          ><button
+            role="tab"
+            id="tab-code"
+            aria-controls="panel-code"
+            aria-selected="false"
+            data-tab="code"
+          >
+            02 动手</button
+          ><button
+            role="tab"
+            id="tab-quiz"
+            aria-controls="panel-quiz"
+            aria-selected="false"
+            data-tab="quiz"
+          >
+            03 检验</button
+          ><button
+            role="tab"
+            id="tab-notes"
+            aria-controls="panel-notes"
+            aria-selected="false"
+            data-tab="notes"
+          >
+            ✎ 笔记
+          </button>
+        </div>
+        <section id="panel-read" role="tabpanel" aria-labelledby="tab-read">
+          <p class="story" id="story"></p>
+          <div id="reading"></div>
+          <button class="btn dark next-tab" data-go="code">
+            读懂了，动手试试 →
+          </button>
+        </section>
+        <section
+          id="panel-code"
+          role="tabpanel"
+          aria-labelledby="tab-code"
+          hidden
+        >
+          <div class="task">
+            <span class="eyebrow">你的动手任务</span>
+            <p id="task-text"></p>
+          </div>
+          <div class="editor-top">
+            <span>experiment.js</span><span>运行后，结果会改变右侧实验</span>
+          </div>
+          <label class="sr-only" for="code-editor">本课可执行 JavaScript</label
+          ><textarea
+            id="code-editor"
+            spellcheck="false"
+            autocapitalize="off"
+            autocomplete="off"
+          ></textarea>
+          <div class="editor-actions">
+            <button id="run-code" class="btn dark">▶ 运行代码</button
+            ><button id="hint" class="btn">给我一点提示</button
+            ><button id="reset-code" class="text-btn">恢复起点</button>
+          </div>
+          <p class="hint" id="hint-text" hidden></p>
+          <div class="console-top">
+            <span>运行结果</span><span id="task-state">尚未验证</span>
+          </div>
+          <pre class="console" id="code-output" aria-live="polite">
+这里会显示真正运行后的结果。</pre
+          >
+          <details class="solution">
+            <summary>卡住了？查看参考答案</summary>
+            <pre><code id="solution-code"></code></pre>
+            <button id="use-solution" class="btn">
+              放入编辑器，再自己运行
+            </button>
+          </details>
+          <details class="source-details">
+            <summary>项目里怎么写 · 与实验代码的区别</summary>
+            <p>
+              上面的编辑器是一个小实验，return
+              用来把结果交回工坊。实际游戏文件按下面的方式组织；打开完整源码查看上下文。
+            </p>
+            <pre><code id="project-code"></code></pre>
+            <div class="source-actions">
+              <button id="view-source" class="text-btn">
+                阅读完整对应源文件</button
+              ><span id="source-name"></span>
+            </div>
+            <pre id="source-full" hidden></pre>
+          </details>
+          <button class="btn next-tab" data-go="quiz">验证理解 →</button>
+        </section>
+        <section
+          id="panel-quiz"
+          role="tabpanel"
+          aria-labelledby="tab-quiz"
+          hidden
+        >
+          <p class="eyebrow">不是背术语，是做判断</p>
+          <h3 id="quiz-question"></h3>
+          <div id="quiz-options" class="quiz-options"></div>
+          <p id="quiz-feedback" role="status"></p>
+          <div class="completion-card">
+            <span class="completion-flower" aria-hidden="true">✳</span>
+            <h3>让这颗知识种子发芽。</h3>
+            <p id="completion-text">
+              完成代码任务，再答对小测，就可以收下这一课。
+            </p>
+            <button id="complete" class="btn dark" disabled>
+              收下这一课 ✓
+            </button>
+          </div>
+        </section>
+        <section
+          id="panel-notes"
+          role="tabpanel"
+          aria-labelledby="tab-notes"
+          hidden
+        >
+          <h3>留给未来自己的提示</h3>
+          <p>
+            试着用自己的话回答：它解决了什么问题？去掉这段代码会发生什么？我还想改变什么？
+          </p>
+          <label class="sr-only" for="notes">本课学习笔记</label
+          ><textarea id="notes" placeholder="今天我终于明白了……"></textarea>
+          <p class="muted" id="save-status">
+            自动保存在当前浏览器，也可以导出备份。
+          </p>
+        </section>
+        <footer class="lesson-footer">
+          <button id="previous" class="text-btn">← 上一课</button
+          ><span id="footer-status"></span
+          ><button id="next" class="text-btn">下一课 →</button>
+        </footer>
+      </main>
+      <aside class="lab-column">
+        <div class="lab-title">
+          <span class="eyebrow">边学边玩的实验室</span
+          ><span class="live-dot">LIVE</span>
+        </div>
+        <div id="lab"></div>
+        <div class="controls-card">
+          <div class="control-heading">
+            <h3>如果改变一点点？</h3>
+            <span>拖一拖，看变化</span>
+          </div>
+          <div id="controls"></div>
+          <p id="lab-status" aria-live="polite">先预测结果，再动手验证。</p>
+        </div>
+        <div class="field-note">
+          <span>✦ 工坊小约定</span>
+          <p>
+            每次只改一个参数。<br />先观察，再解释，最后把它写进你自己的游戏。
+          </p>
+        </div>
+        <details class="references">
+          <summary>随手查阅 · 官方资料</summary>
+          <div id="references"></div>
+        </details>
+      </aside>
+    </div>
+    <footer class="page-footer">
+      <span>一款游戏，始于第一次让它动起来。</span
+      ><span>原创教学项目 · Three.js r186 · 本地学习，无需账号</span>
+    </footer>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "little-worlds-game-academy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "learn": "node server.mjs",
+    "dev": "node server.mjs",
+    "check": "node tests.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.0"
+  }
+}

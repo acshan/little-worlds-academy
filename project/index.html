@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>微光守林人 · 你的第一款 3D 游戏</title>
+    <meta name="theme-color" content="#183c32" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <canvas
+        id="game"
+        tabindex="0"
+        aria-label="游戏画面，点击后按 WASD 或方向键移动"
+      ></canvas>
+      <header>
+        <a href="../" id="course-link">← 微光工坊</a
+        ><span>微光守林人 <small>FOREST KEEPER</small></span
+        ><button id="pause" type="button">暂停 / 继续</button>
+      </header>
+      <div class="hud" id="hud">
+        <span id="hp"></span><span id="level"></span><span id="clock"></span
+        ><span id="kills"></span>
+      </div>
+      <div class="goal">目标：守住 90 秒，等待天亮。60 秒时精英登场。</div>
+      <div class="game-overlay" id="overlay"></div>
+      <div class="directions" aria-label="触屏方向键">
+        <button data-dir="up" aria-label="向前">↑</button>
+        <div>
+          <button data-dir="left" aria-label="向左">←</button
+          ><button data-dir="down" aria-label="向后">↓</button
+          ><button data-dir="right" aria-label="向右">→</button>
+        </div>
+      </div>
+      <footer>
+        <span>WASD / 方向键移动 · 自动攻击 · 收集青色微光升级</span
+        ><label><input type="checkbox" id="quiet" checked /> 安静模式</label
+        ><label><input type="checkbox" id="comfort" checked /> 减少闪动</label>
+      </footer>
+      <div class="error" id="error" hidden></div>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
