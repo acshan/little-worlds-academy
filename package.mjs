@@ -35,7 +35,7 @@ for filename,includes,prefix in plans:
 with zipfile.ZipFile(root/'downloads'/'interactive-course.zip','w',zipfile.ZIP_DEFLATED) as z:
  for f in sorted(root.rglob('*')):
   rel=f.relative_to(root)
-  if f.is_file() and rel.parts[0] not in ['node_modules','downloads'] and '__pycache__' not in rel.parts:
+  if f.is_file() and rel.parts[0] not in ['node_modules','downloads','.git'] and '__pycache__' not in rel.parts:
    z.write(f,str(pathlib.Path('little-worlds-academy')/rel))
  for filename in ['forest-survivor.zip','forest-starter.zip','learning-materials.zip']:
   z.write(root/'downloads'/filename,str(pathlib.Path('little-worlds-academy')/'downloads'/filename))

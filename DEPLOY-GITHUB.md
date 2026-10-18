@@ -4,9 +4,9 @@
 
 ## 第一次发布
 
-1. 在原始工程根目录运行 `node academy/tests.mjs`、`node academy/package.mjs`、`node academy/export-pages.mjs`。
+1. 在此仓库根目录运行 `node tests.mjs` 和 `node package.mjs`。原始工程也可运行 `node academy/export-pages.mjs` 导出独立目录。
 2. 在 GitHub 创建独立仓库，例如 `little-worlds-academy`。免费方案可使用公开仓库；站点将公开访问。
-3. 将 `deliverables/little-worlds-academy/` **里面的文件**提交到仓库 `main` 分支根目录，包括隐藏文件 `.nojekyll`。不要上传外层工程。
+3. 将教程文件提交到仓库 `main` 分支根目录，包括隐藏文件 `.nojekyll`。原始工程请仅使用 `deliverables/little-worlds-academy/` 里面的导出文件。
 4. 仓库 Settings → Pages → Source 选择 **Deploy from a branch**，Branch 选择 **main**，Folder 选择 **/(root)**，保存。
 5. 等待 Pages 部署完成，通过 GitHub 显示的站点地址打开。项目地址通常是 `https://你的用户名.github.io/little-worlds-academy/`。
 
